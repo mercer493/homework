@@ -82,7 +82,18 @@ _prompt2:
     PUSH {R0}
     SUB R2, R2, #1
     BL _count
+    MOV R3,R0
+    POP {R0}
+    ADD R4,R0,R3
+    POP {R2}
+    POP {PC}
     
+  _printf:
+    PUSH {LR}               @ store the return address
+    LDR R0, = printf_str     @ R0 contains formatted string address
+    MOV R1, R4              @ R1 contains printf argument 1 (redundant line)
+    BL printf               @ call printf
+    POP {PC}                @ restore the stack pointer and return
     
    
    
@@ -90,3 +101,4 @@ _prompt2:
 .data
 prompt_str1:                .asciz              "Please enter an integer n: "
 prompt_str2:                .asciz              "Please enter an integer m: "
+printf_str:                 .asciz              "%d\n"
