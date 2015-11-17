@@ -2,7 +2,8 @@
 *Name: Billy Brown
 *UTA ID: 1000955609
 *11/14/15
-*Description:
+*Description: A Recursive program built using ARM Assembly which calculates the # of integer partitions x for some number n using
+              integer values <= m.
 **********************************************************************************************************************************/
     .global main
     .func main
