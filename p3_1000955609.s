@@ -26,16 +26,16 @@ generate:
     STR R8, [R2]            @ write the address of a[i] to a[i]
     ADD R2, R2, #4
     ADD R8, R8, #1
-    SUB R8, #0, R8
+    SUB R8, 0, R8
     STR R8 [R2]
     ADD R0, R0, #2          @ increment index
     BL generate             @ branch to next loop iteration
 gendone:
     MOV R0, #0              @ initialze index variable
 readloop:
-    CMP R0, #100            @ check to see if we are done iterating
+    CMP R0, #20            @ check to see if we are done iterating
     BEQ readdone            @ exit loop if done
-    LDR R1, =a              @ get address of a
+    LDR R1, =a_array              @ get address of a
     LSL R2, R0, #2          @ multiply index*4 to get array offset
     ADD R2, R1, R2          @ R2 now has the element address
     LDR R1, [R2]            @ read the array at address 
