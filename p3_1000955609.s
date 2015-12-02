@@ -1,10 +1,8 @@
 /******************************************************************************
-* 
-* 
-*
-* 
-* 
-*
+*UTA ID: 1000955609 
+*12/1/15 
+*Descritpion: A program that populates an array, a_array, and then outputs 
+	      the values stored in the array to the screen.
 * @AUTHOR Billy J. Brown
 ******************************************************************************/
  
@@ -26,8 +24,8 @@ generate:
     STR R8, [R2]            @ write the address of a[i] to a[i]
     ADD R2, R2, #4
     ADD R8, R8, #1
-    SUB R8, 0, R8
-    STR R8 [R2]
+    NEG R8, R8
+    STR R8, [R2]
     ADD R0, R0, #2          @ increment index
     BL generate             @ branch to next loop iteration
 gendone:
@@ -94,6 +92,6 @@ _scanf:
 a_array:              .skip       80
 b_array:              .skip       80
 printf_str:           .asciz      "a[%d] = %d\n"
-prompt_str:           .asciz      "Please enter an integer: "
-format_str:           .asciz      "%d\n"
+prompt_str:           .asciz      "Please enter an integer:\t"
+format_str:           .asciz      "%d"
 exit_str:             .ascii      "Terminating program.\n"
