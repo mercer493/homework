@@ -26,8 +26,8 @@ generate:
     STR R8, [R2]            @ write the address of a[i] to a[i]
     ADD R2, R2, #4
     ADD R8, R8, #1
-    SUB R8, 0, R8
-    STR R8 [R2]
+    NEG R8, R8
+    STR R8, [R2]
     ADD R0, R0, #2          @ increment index
     BL generate             @ branch to next loop iteration
 gendone:
@@ -95,5 +95,5 @@ a_array:              .skip       80
 b_array:              .skip       80
 printf_str:           .asciz      "a[%d] = %d\n"
 prompt_str:           .asciz      "Please enter an integer: "
-format_str:           .asciz      "%d\n"
+format_str:           .asciz      "%d"
 exit_str:             .ascii      "Terminating program.\n"
