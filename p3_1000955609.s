@@ -1,12 +1,11 @@
-/******************************************************************************
-* 
-* 
-*
-* 
-* 
-*
+/********************************************************************************
+*UTA ID: 1000955609 
+*12/1/15
+*Description: A program which takes a positive integer n as input from the user
+*             then proceeds to populate an array a_array with corresponding data,
+*             which is then printed to the screen.
 * @AUTHOR Billy J. Brown
-******************************************************************************/
+**********************************************************************************/
  
 .global main
 .func main
