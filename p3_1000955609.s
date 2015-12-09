@@ -92,6 +92,6 @@ _scanf:
 a_array:              .skip       80
 b_array:              .skip       80
 printf_str:           .asciz      "a[%d] = %d\n"
-prompt_str:           .asciz      "Please enter an integer:\t"
+prompt_str:           .asciz      "Please enter an integer: "
 format_str:           .asciz      "%d"
 exit_str:             .ascii      "Terminating program.\n"
