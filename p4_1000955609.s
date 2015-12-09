@@ -1,5 +1,16 @@
-    .global main
-    .func main
+/********************************************************************************
+*UTA ID: 1000955609 
+*12/1/15
+*Description: A program which takes two positive integers as input from the user
+*             then, through the use of the ARM FPU and VFP registers, performs the
+              dividend of the two integers with double precision.
+* @AUTHOR Billy J. Brown
+**********************************************************************************/
+
+
+
+.global main
+.func main
    
 main:
     BL _prompt
@@ -17,7 +28,7 @@ main:
     BL _printf
     VMOV R1, R2, D4
     BL _printf2
-    BL main               @ branch to exit procedure with no return
+    BL main               
     
     
     
