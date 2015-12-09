@@ -8,10 +8,15 @@ main:
     BL _prompt
     BL _scanf
     MOV R8,R0
+    VLDR S0, [R7]
+    VLDR S1, [R8]
+    VDIV.F32 S2, S0, S1
+    VCVT.F64.F32 D4, S2
     MOV R1,R7
     MOV R2,R8
-    BL _divide
     BL _printf
+    VMOV R1, R2, D4
+    BL _printf2
     
     LDR R0, =val1           @ load variable address
     VLDR S0, [R0]           @ load the value into the VFP register
@@ -50,18 +55,15 @@ _scanf:
     POP {R1}                @ restore register value
     POP {PC}                @ restore the stack pointer and return
     
-    
-    
-_divide:
-    VLDR S0, [R1]
-    VLDR S1, [R2]
-    VDIV.F32 S2, S0, S1
-    VCVT.F64.F32 D4, S2
-    VMOV R1, R2, D4
-    
 _printf:
     PUSH {LR}               @ store the return address
     LDR R0, =printf_str     @ R0 contains formatted string address
+    BL printf               @ call printf
+    POP {PC}                @ restore the stack pointer and return
+    
+_printf2:
+    PUSH {LR}               @ store the return address
+    LDR R0, =printf_str2     @ R0 contains formatted string address
     BL printf               @ call printf
     POP {PC}                @ restore the stack pointer and return
    
@@ -70,7 +72,8 @@ _printf:
    
 .data
 
-printf_str:           .asciz      "a[%d] = %d\n"
+printf_str:           .asciz      "%d/%d = "
+printf_str2:          .asciz      "%f\n"
 prompt_str:           .asciz      "Please enter an integer: "
-format_str:           .asciz      "%d"
+format_str:           .asciz      "%d\n"
 exit_str:             .ascii      "Terminating program.\n"
