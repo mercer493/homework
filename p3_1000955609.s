@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 /******************************************************************************
 *UTA ID: 1000955609 
 *12/1/15 
 *Descritpion: A program that populates an array, a_array, and then outputs 
 	      the values stored in the array to the screen.
+=======
+/********************************************************************************
+*UTA ID: 1000955609 
+*12/1/15
+*Description: A program which takes a positive integer n as input from the user
+*             then proceeds to populate an array a_array with corresponding data,
+*             which is then printed to the screen.
+>>>>>>> 9d7495a4467d70cb118d18a92ef5d0aa511563b8
 * @AUTHOR Billy J. Brown
-******************************************************************************/
+**********************************************************************************/
  
 .global main
 .func main
